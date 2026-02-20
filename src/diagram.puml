@@ -1,0 +1,19 @@
+@startuml
+
+class Patient {
+    - name : String
+    - species: String
+    - ownersPhoneNumber : String
+
+    + getName() : String
+    + getSpecies() : String
+    + getOwnersPhoneNumber() : String
+    + setName() : String
+    + setSpecies() : String
+    + setOwnersPhoneNumber():String
+}
+
+
+
+
+@enduml
