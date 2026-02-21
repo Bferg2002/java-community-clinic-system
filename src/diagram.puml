@@ -1,0 +1,70 @@
+@startuml
+
+class Patient {
+    - name : String
+    - species : String
+    - ownersPhoneNumber : String
+    - appointments : ArrayList<Appointment>
+    - checkedIn: boolean
+
+    + Patient(name : String, species : String, ownersPhoneNumber : String)
+
+    + getName() : String
+    + getSpecies() : String
+    + getOwnersPhoneNumber() : String
+    + getCheckedIn() : boolean
+
+    + setName(name : String) : void
+    + setSpecies(species : String) : void
+    + setOwnersPhoneNumber(ownersPhoneNumber : String) : void
+    + setCheckedIn(checkedIn: String) : void
+}
+
+class Appointment {
+    - reason : String
+    - date : String
+    - time : String
+
+    + Appointment(reason : String, date : String)
+
+    + getReason() : String
+    + getDate() : String
+    + getTime() : String
+
+    + setReason(reason : String) : void
+    + setDate(date : String) : void
+    + setDate(time : String) : void
+
+}
+
+class ClinicSystem {
+    - patients : ArrayList<Patient>
+    - waitingList : ArrayList<Patient>
+}
+class YourNameClinicApp {
+    + main(args : String[]) : void
+}
+
+' =========================================
+' RELATIONSHIPS EXPLAINED
+' =========================================
+
+' One Patient has zero or many Appointments.
+' "1" means one Patient.
+' "0..*" means that Patient can have zero or many Appointment objects.
+' *-- means composition (Appointments belong to the Patient and cannot exist without it).
+YourNamePatient "1" *-- "0..*" YourNameAppointment
+
+
+' One ClinicSystem manages zero or many Patients.
+' "1" means one ClinicSystem.
+' "0..*" means the system can manage zero or many Patient objects.
+' o-- means aggregation (Patients can exist independently of the ClinicSystem).
+YourNameClinicSystem "1" o-- "0..*" YourNamePatient
+
+
+' ClinicApp depends on ClinicSystem.
+' This means the main application class uses ClinicSystem to run the program.
+' --> represents a dependency relationship.
+YourNameClinicApp --> YourNameClinicSystem
+@enduml
