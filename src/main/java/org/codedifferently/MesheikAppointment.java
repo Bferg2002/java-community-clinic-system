@@ -1,19 +1,21 @@
 package org.codedifferently;
 
+// This class represents one appointment
 public class MesheikAppointment {
 
-    //Setting our variables up
+    //Setting our appointment variables up
     private String date;
     private String time;
     private String reason;
 
+    // Constructor runs when an appointment is created
     public MesheikAppointment(String date, String time, String reason){
         this.date = date;
         this.time = time;
         this.reason = reason;
     }
 
-    //Getters
+    //Getters: how we get our appointments
     public String getDate() {
         return date;
     }
@@ -27,7 +29,7 @@ public class MesheikAppointment {
     }
 
 
-    //Setters
+    //Setters: How we change or update our appointments
     public void setDate(String date) {
         this.date = date;
     }
