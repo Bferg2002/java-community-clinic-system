@@ -5,19 +5,19 @@ class Patient {
     - species : String
     - ownersPhoneNumber : String
     - appointments : ArrayList<Appointment>
-    - checkedIn: boolean
+    - checkedIn : boolean
 
-    + Patient(name : String, species : String, ownersPhoneNumber : String)
+    + Patient(name : String, species : String, ownersPhoneNumber : String, checkedIn : boolean)
 
     + getName() : String
     + getSpecies() : String
     + getOwnersPhoneNumber() : String
-    + getCheckedIn() : boolean
+    + isCheckedIn() : boolean
 
     + setName(name : String) : void
     + setSpecies(species : String) : void
     + setOwnersPhoneNumber(ownersPhoneNumber : String) : void
-    + setCheckedIn(checkedIn: String) : void
+    + setCheckedIn(checkedIn : boolean) : void
 }
 
 class Appointment {

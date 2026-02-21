@@ -15,11 +15,7 @@ package org.codedifferently;
             this.name = name;
 
             this.checkedIn = false;
-
-
-
-
-
+            
         }
 
 
