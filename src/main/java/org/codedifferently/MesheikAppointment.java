@@ -13,4 +13,31 @@ public class MesheikAppointment {
         this.reason = reason;
     }
 
+    //Getters
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+
+    //Setters
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
 }//ends class
