@@ -10,8 +10,6 @@ public class KennyPatient {
 
         private boolean checkedIn;
 
-        //private ArrayList<Appointment> appointments ;
-
         private String ownersPhoneNumber;
 
 
@@ -25,7 +23,6 @@ public class KennyPatient {
             this.ownersPhoneNumber = ownersPhoneNumber;
 
         }
-
 
         public String getSpecies() {
             return species;
@@ -41,11 +38,9 @@ public class KennyPatient {
 
         public String getOwnersPhoneNumber(){return ownersPhoneNumber;}
 
-
         public void setCheckedIn(Boolean checkedIn) {
             this.checkedIn = checkedIn;
         }
-
 
         public void setName(String name) {
             this.name = name;
@@ -58,8 +53,7 @@ public class KennyPatient {
         this.species = species;
         }
 
-
-        @Override
+    @Override
         public String toString() {
             return "KennyPatient{" +
                     "id=" + species +
