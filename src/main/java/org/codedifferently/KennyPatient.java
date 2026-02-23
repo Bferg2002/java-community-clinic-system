@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class KennyPatient {
 
+        //instance variables for the patient class
         private String species;
 
         private String name;
@@ -13,8 +14,10 @@ public class KennyPatient {
         private String ownersPhoneNumber;
 
         private int patientId;
-        private int idCounter = 1;
 
+        private static int idCounter = 1;
+
+        //constructor
         public KennyPatient(String species, String name, boolean checkedIn, String ownersPhoneNumber) {
             this.species = species;
 
@@ -27,6 +30,7 @@ public class KennyPatient {
             this.patientId = idCounter++;
         }
 
+        //getter methods for the instance variables
         public String getSpecies() {
             return species;
         }
@@ -45,13 +49,15 @@ public class KennyPatient {
 
         public String getOwnersPhoneNumber(){return ownersPhoneNumber;}
 
+        //getter methods for the instance variables
         public void setCheckedIn(Boolean checkedIn) {
-            this.checkedIn = checkedIn;
-        }
+                this.checkedIn = checkedIn;
+            }
 
         public void setName(String name) {
             this.name = name;
         }
+
         public void setOwnersPhoneNumber(String ownersPhoneNumber){
          this.ownersPhoneNumber = ownersPhoneNumber;
         }
@@ -60,6 +66,7 @@ public class KennyPatient {
         this.species = species;
         }
 
+        //displays the information of a single patient
         public void displayInfo() {
             System.out.println("Patient ID: " + patientId);
             System.out.println("Pet Name: " + name);

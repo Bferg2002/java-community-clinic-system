@@ -8,13 +8,17 @@ public class MesheikAppointment {
     private String time;
     private String reason;
     private boolean completed;
+    private KennyPatient patient;
+
+
 
     // Constructor runs when an appointment is created
-    public MesheikAppointment(String date, String time, String reason){
+    public MesheikAppointment(String date, String time, String reason ,KennyPatient patient){
         this.date = date;
         this.time = time;
         this.reason = reason;
         this.completed = false;
+        this.patient = patient;
     }
 
     //Getters: how we get our appointments
