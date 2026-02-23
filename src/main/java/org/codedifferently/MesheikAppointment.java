@@ -7,12 +7,14 @@ public class MesheikAppointment {
     private String date;
     private String time;
     private String reason;
+    private boolean completed;
 
     // Constructor runs when an appointment is created
     public MesheikAppointment(String date, String time, String reason){
         this.date = date;
         this.time = time;
         this.reason = reason;
+        this.completed = false;
     }
 
     //Getters: how we get our appointments
@@ -28,6 +30,10 @@ public class MesheikAppointment {
         return reason;
     }
 
+    public boolean isCompleted() {
+        return completed;
+    }
+
 
     //Setters: How we change or update our appointments
     public void setDate(String date) {
@@ -41,5 +47,10 @@ public class MesheikAppointment {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    public void markCompleted() {
+        this.completed = true;
+    }
+
 
 }//ends class

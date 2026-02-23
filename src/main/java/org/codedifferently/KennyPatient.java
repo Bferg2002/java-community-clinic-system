@@ -35,7 +35,7 @@ public class KennyPatient {
             return name;
         }
 
-        public boolean getCheckedIn() {
+        public boolean isCheckedIn() {
             return checkedIn;
         }
 
@@ -66,8 +66,7 @@ public class KennyPatient {
             System.out.println("Species: " + species);
             System.out.println("Owner's Phone Number: " + ownersPhoneNumber);
             System.out.println("Checked In: " + checkedIn);
-            System.out.println();
-        }
+            System.out.println("---------------------------");        }
 
 
 }
