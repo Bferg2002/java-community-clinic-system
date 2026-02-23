@@ -1,14 +1,15 @@
 @startuml
 
 class Patient {
+    - patientId : int
     - name : String
     - species : String
     - ownersPhoneNumber : String
-    - appointments : ArrayList<Appointment>
     - checkedIn : boolean
 
-    + Patient(name : String, species : String, ownersPhoneNumber : String, checkedIn : boolean)
+    + Patient(species : String, name : String, checkedIn : boolean, ownersPhoneNumber : String)
 
+    + getPatientId() : int
     + getName() : String
     + getSpecies() : String
     + getOwnersPhoneNumber() : String
@@ -24,24 +25,42 @@ class Appointment {
     - reason : String
     - date : String
     - time : String
+    - completed : boolean
 
-    + Appointment(reason : String, date : String)
+    + Appointment(date : String, time : String, reason : String)
 
     + getReason() : String
     + getDate() : String
     + getTime() : String
+    + isCompleted() : boolean
 
-    + setReason(reason : String) : void
-    + setDate(date : String) : void
-    + setDate(time : String) : void
-
+    + markCompleted() : void
 }
 
 class ClinicSystem {
     - patients : ArrayList<Patient>
     - waitingList : ArrayList<Patient>
+    - appointments : ArrayList<Appointment>
+    - dailyTimeSlots : String[]
+
+    + ClinicSystem()
+
+    + addPatient(patient : Patient) : void
+    + viewAllPatients() : void
+    + lookUpPatient(name : String, phoneNumber : String) : void
+    + lookUpPatientById(id : int) : void
+    + checkInPatient(patient : Patient) : void
+
+    + scheduleAppointment(date : String, time : String, reason : String) : void
+    + cancelAppointment(date : String, time : String) : void
+    + viewFullSchedule() : void
+    + dailySummary(date : String) : void
+
+    + addedToWaitingList(patient : Patient) : void
+    + viewWaitList() : void
 }
-class YourNameClinicApp {
+
+class ClinicApp {
     + main(args : String[]) : void
 }
 
@@ -49,22 +68,23 @@ class YourNameClinicApp {
 ' RELATIONSHIPS EXPLAINED
 ' =========================================
 
-' One Patient has zero or many Appointments.
-' "1" means one Patient.
-' "0..*" means that Patient can have zero or many Appointment objects.
-' *-- means composition (Appointments belong to the Patient and cannot exist without it).
-YourNamePatient "1" *-- "0..*" YourNameAppointment
-
-
 ' One ClinicSystem manages zero or many Patients.
 ' "1" means one ClinicSystem.
 ' "0..*" means the system can manage zero or many Patient objects.
 ' o-- means aggregation (Patients can exist independently of the ClinicSystem).
-YourNameClinicSystem "1" o-- "0..*" YourNamePatient
+ClinicSystem "1" o-- "0..*" Patient
+
+
+' One ClinicSystem manages zero or many Appointments.
+' "1" means one ClinicSystem.
+' "0..*" means the system can manage zero or many Appointment objects.
+' o-- means aggregation (Appointments can exist independently of the ClinicSystem).
+ClinicSystem "1" o-- "0..*" Appointment
 
 
 ' ClinicApp depends on ClinicSystem.
 ' This means the main application class uses ClinicSystem to run the program.
 ' --> represents a dependency relationship.
-YourNameClinicApp --> YourNameClinicSystem
+ClinicApp --> ClinicSystem
+
 @enduml
