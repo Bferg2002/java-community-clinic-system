@@ -39,13 +39,37 @@ public class BryantClinicSystem {
         waitingList.add(patient);
     }
 
+    public void addPatient(KennyPatient patient){
+        patients.add(patient);
+    }
+
     public void viewAllPatients(){
-
+        for (KennyPatient patient : patients) {
+            patient.displayInfo();
+        }
     }
 
-    public void lookUpPatient(){
+    public void lookUpPatient(String name, String phoneNumber){
+        for (KennyPatient patient : patients) {
+            if (name.equals(patient.getName()) && phoneNumber.equals(patient.getOwnersPhoneNumber())) {
+                patient.displayInfo();
+            }
+        }
+    }
 
+    public void lookUpPatientById(int id){
+        for (KennyPatient patient : patients) {
+            if (patient.getPatientId() == id) {
+                patient.displayInfo();
+                return;   //exits the method early
+            }
+        }
+        System.out.println("Patient not found.");
     }
 
 
-}
+    public void checkInPatient(KennyPatient patient){
+        patient.setCheckedIn(true);
+    }
+
+}// ends class

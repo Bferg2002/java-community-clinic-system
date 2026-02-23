@@ -12,6 +12,8 @@ public class KennyPatient {
 
         private String ownersPhoneNumber;
 
+        private int patientId;
+        private int idCounter = 1;
 
         public KennyPatient(String species, String name, boolean checkedIn, String ownersPhoneNumber) {
             this.species = species;
@@ -22,6 +24,7 @@ public class KennyPatient {
 
             this.ownersPhoneNumber = ownersPhoneNumber;
 
+            this.patientId = idCounter++;
         }
 
         public String getSpecies() {
@@ -34,6 +37,10 @@ public class KennyPatient {
 
         public boolean getCheckedIn() {
             return checkedIn;
+        }
+
+        public int getPatientId() {
+            return patientId;
         }
 
         public String getOwnersPhoneNumber(){return ownersPhoneNumber;}
@@ -53,12 +60,14 @@ public class KennyPatient {
         this.species = species;
         }
 
-    @Override
-        public String toString() {
-            return "KennyPatient{" +
-                    "id=" + species +
-                    ", name='" + name + '\'' +
-                    ", checkedIn=" + checkedIn +
-                    '}';
+        public void displayInfo() {
+            System.out.println("Patient ID: " + patientId);
+            System.out.println("Pet Name: " + name);
+            System.out.println("Species: " + species);
+            System.out.println("Owner's Phone Number: " + ownersPhoneNumber);
+            System.out.println("Checked In: " + checkedIn);
+            System.out.println();
         }
-    }
+
+
+}
