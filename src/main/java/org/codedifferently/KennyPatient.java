@@ -74,6 +74,4 @@ public class KennyPatient {
             System.out.println("Owner's Phone Number: " + ownersPhoneNumber);
             System.out.println("Checked In: " + checkedIn);
             System.out.println("---------------------------");        }
-
-
 }

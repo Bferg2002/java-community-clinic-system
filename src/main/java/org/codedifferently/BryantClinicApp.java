@@ -45,6 +45,7 @@ public class BryantClinicApp {
                     if (patient != null) {
                         clinic.checkInPatient(patient);
                         clinic.lookUpPatientById(Integer.parseInt(checkInId));
+
                     } else {
                         System.out.println("Patient not found.");
                         System.out.println("---------------------------");
@@ -111,6 +112,16 @@ public class BryantClinicApp {
                     clinic.addedToWaitingList(newPatient2);
                     break;
 
+                case 12:
+                    System.out.print("Enter appointment date (MM/DD/YYYY): ");
+                    String compDate = input.nextLine();
+
+                    System.out.print("Enter appointment time: ");
+                    String compTime = input.nextLine().toUpperCase();
+
+                    clinic.completeAppointment(compDate, compTime);
+                    break;
+
                 case 0:
                     System.out.println("Exiting system. Goodbye!");
                     break;
@@ -139,6 +150,7 @@ public class BryantClinicApp {
         System.out.println("9. Daily Summary Report");
         System.out.println("10. View Waitlist");
         System.out.println("11. Add Patient to Waitlist");
+        System.out.println("12. Mark an Appointment as Completed");
         System.out.println("0. Exit");
         System.out.println();
         System.out.print("Enter choice: ");
